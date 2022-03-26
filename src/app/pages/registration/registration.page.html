@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="conteiner">
+    <div class="card card-conteiner">
+      <img id="profile-img" class="profile-img-card" src="/assets/icon/icone-vestapp.png"/>
+      <p id="profile-name" class="profile-name-card"></p>
+      <form class="signup" #signupForm='ngForm' (ngSubmit)="signupForm">
+        <span id='username' class='username'></span>
+        <ion-item>
+          <ion-label position="floating">Nome de Usuário</ion-label>
+          <ion-input type="text" required name="lastname" ngModel autofocus></ion-input>
+        </ion-item>
+        <br>
+        <span id="reauth-email" class="reauth-email"></span>
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="text" required name="email" ngModel autofocus></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" required name="password" ngModel></ion-input>
+        </ion-item>
+        <br>
+        <div id="remember" class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Lembrar Senha
+          </label>
+        </div>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block btn-signup"
+                type="submit"
+                [disabled]="signupForm.invalid || signupForm.pending">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+
+

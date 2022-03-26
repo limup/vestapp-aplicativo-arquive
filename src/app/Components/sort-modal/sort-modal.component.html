@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Filtrar</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group (ionChange)="radioChanged($event)" [value]="radioValue">
+      <ion-item>
+        <ion-label>Nome crescente</ion-label>
+        <ion-radio value="title-asc"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nome decrescente</ion-label>
+        <ion-radio value="title-desc"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Preço baixo para alto</ion-label>
+        <ion-radio value="price-asc"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Preço alto para baixo</ion-label>
+        <ion-radio value="price-desc"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

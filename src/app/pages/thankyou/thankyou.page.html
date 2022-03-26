@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Obrigado</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="jumbotron text-center">
+          <h1 class="display-3">Obrigado por comprar com a VestApp!</h1>
+          <p class="lead"><strong>Por favor verifique seu email</strong> para confirmação de pedido.</p>
+          <hr>
+          <p>
+          <p>Numero do Pedido: <strong>{{orderId}}</strong></p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="d-flex justify-content-center">
+        <ion-button routerLink="/" color="dark" fill="solid" expand="full" size="large">Voltar para o inicio</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
