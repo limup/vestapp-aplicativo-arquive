@@ -5,9 +5,42 @@
       </ion-buttons>
       <ion-title>Minha Conta</ion-title>
     </ion-toolbar>
-  </ion-header>
+</ion-header>
 
-  <ion-card class="container">
-    <ion-card-header>
-      <ion-card-title></ion-card-title>
-    </ion-card-header>
+<ion-content>
+  <div class="container">
+    <div class="card card-container">
+      <img id="profile-img" class="profile-img-card" src="/assets/icon/icone-vestapp.png" />
+      <p id="profile-name" class="profile-name-card"></p>
+      <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <span id="reauth-email" class="reauth-email"></span>
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="text" required name="email" ngModel autofocus></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" required name="password" ngModel></ion-input>
+        </ion-item>
+        <br>
+        <div id="remember" class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Lembrar Senha
+          </label>
+        </div>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block btn-signin"
+                type="submit"
+                [disabled]="loginForm.invalid || loginForm.pending">Entrar</button>
+
+        <button class="btn btn-lg btn-primary btn-block btn-signin"
+                routerLink='/registration'>Cadastrar</button>
+      </form>
+      <br>
+      <a href="/forgot-password" class="forgot-password">
+        Esqueceu sua senha?
+      </a>
+    </div>
+  </div>
+</ion-content>

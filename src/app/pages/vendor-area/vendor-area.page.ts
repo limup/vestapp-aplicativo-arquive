@@ -15,10 +15,10 @@ export class VendorAreaPage implements OnInit {
     private iab: InAppBrowser) {
     }
 
-    openSelf() {
-      this.iab.create('https://vestappbr.com.br/store-manager/', '_Self','location: no', )
+    openSelf1() {
+      this.iab.create('https://vestappbr.com.br/minha-conta/', '_Self','location: no', )
     }
-    openSelf1(){
+    openSelf2(){
       this.iab.create('https://vestappbr.com.br/vendor-register/', '_Self', 'location: no',)
     }
   ngOnInit() {
