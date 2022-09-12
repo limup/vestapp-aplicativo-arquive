@@ -1,36 +1,24 @@
-import {Component} from '@angular/core';
-import {Platform} from '@ionic/angular';
-import {Capacitor, Plugins} from "@capacitor/core";
-import { Storage } from '@ionic/storage-angular';
+import { Component } from '@angular/core';
+import { Browser } from '@capacitor/browser';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: 'app.component.html',
-    styleUrls: ['app.component.scss']
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-    constructor(
-        private platform: Platform,
-        private storage: Storage,
-        
-    ) {
-        this.initializeApp();
-    }
+  public appPages = [
+    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
+    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
+    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
+    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
+    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
+    { title: 'Spam', url: '/folder/Spam', icon: 'warning' }
+  ];
+  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  constructor() {}
 
-    async ngOnInit() {
-        await this.storage.create()
-    }
-
-    initializeApp() {
-        /*this.platform.ready().then(() => {
-             this.statusBar.styleDefault();
-             this.splashScreen.hide();
-           });*/
-
-        this.platform.ready().then(() => {
-            if (Capacitor.isPluginAvailable('SplashScreen')) {
-                Plugins.SplashScreen.hide().then();
-            }
-        });
-    }
+  ngOnInit() {
+    Browser.open({ url: 'https://vestappbr.com.br/' });
+  }
 }

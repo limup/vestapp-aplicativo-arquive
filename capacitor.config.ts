@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'VestApp-Marketplace',
+  appId: 'com.vestapp.br.app',
+  appName: 'Vestapp Marketplace',
   webDir: 'www',
   bundledWebRuntime: false
 };
