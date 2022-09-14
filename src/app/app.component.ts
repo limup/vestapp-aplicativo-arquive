@@ -10,7 +10,7 @@ import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-a
 export class AppComponent {
   options : InAppBrowserOptions = {
       location : 'yes',//Or 'no' 
-      hidden : 'no', //Or  'yes'
+      hidden : 'yes', //Or  'yes'
       clearcache : 'yes',
       clearsessioncache : 'yes',
       zoom : 'yes',//Android only ,shows browser zoom controls 
@@ -24,14 +24,19 @@ export class AppComponent {
       allowInlineMediaPlayback : 'no',//iOS only 
       presentationstyle : 'pagesheet',//iOS only 
       fullscreen : 'yes',//Windows only    
+      hideurlbar: 'yes'
   };
-  
+
   constructor(
     private iab: InAppBrowser) { }
 
   ngOnInit() {
     
-    const browser = this.iab.create('https://ionicframework.com/');
+    //let target = "_system"; //openWithSystemBrowser
+    let target = "_blank"; //openWithInAppBrowser
+    //let target = "_self"; //openWithCordovaBrowser(
+
+    const browser = this.iab.create('https://vestappbr.com.br/', target, this.options);
 
     browser.on('loadstop').subscribe(event => {
         

@@ -5,11 +5,11 @@
 /*!*********************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/button-active-4975dbd0.js ***!
   \*********************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "c": function() { return /* binding */ createButtonActiveGesture; }
+/* harmony export */   "c": () => (/* binding */ createButtonActiveGesture)
 /* harmony export */ });
 /* harmony import */ var _index_1a99aeb7_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-1a99aeb7.js */ 4895);
 /* harmony import */ var _haptic_683b3b3c_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./haptic-683b3b3c.js */ 634);
@@ -21,16 +21,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var createButtonActiveGesture = function createButtonActiveGesture(el, isButton) {
-  var currentTouchedButton;
-  var initialTouchedButton;
+const createButtonActiveGesture = (el, isButton) => {
+  let currentTouchedButton;
+  let initialTouchedButton;
 
-  var activateButtonAtPoint = function activateButtonAtPoint(x, y, hapticFeedbackFn) {
+  const activateButtonAtPoint = (x, y, hapticFeedbackFn) => {
     if (typeof document === 'undefined') {
       return;
     }
 
-    var target = document.elementFromPoint(x, y);
+    const target = document.elementFromPoint(x, y);
 
     if (!target || !isButton(target)) {
       clearActiveButton();
@@ -43,31 +43,25 @@ var createButtonActiveGesture = function createButtonActiveGesture(el, isButton)
     }
   };
 
-  var setActiveButton = function setActiveButton(button, hapticFeedbackFn) {
+  const setActiveButton = (button, hapticFeedbackFn) => {
     currentTouchedButton = button;
 
     if (!initialTouchedButton) {
       initialTouchedButton = currentTouchedButton;
     }
 
-    var buttonToModify = currentTouchedButton;
-    (0,_index_1a99aeb7_js__WEBPACK_IMPORTED_MODULE_0__.c)(function () {
-      return buttonToModify.classList.add('ion-activated');
-    });
+    const buttonToModify = currentTouchedButton;
+    (0,_index_1a99aeb7_js__WEBPACK_IMPORTED_MODULE_0__.c)(() => buttonToModify.classList.add('ion-activated'));
     hapticFeedbackFn();
   };
 
-  var clearActiveButton = function clearActiveButton() {
-    var dispatchClick = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
+  const clearActiveButton = (dispatchClick = false) => {
     if (!currentTouchedButton) {
       return;
     }
 
-    var buttonToModify = currentTouchedButton;
-    (0,_index_1a99aeb7_js__WEBPACK_IMPORTED_MODULE_0__.c)(function () {
-      return buttonToModify.classList.remove('ion-activated');
-    });
+    const buttonToModify = currentTouchedButton;
+    (0,_index_1a99aeb7_js__WEBPACK_IMPORTED_MODULE_0__.c)(() => buttonToModify.classList.remove('ion-activated'));
     /**
      * Clicking on one button, but releasing on another button
      * does not dispatch a click event in browsers, so we
@@ -85,16 +79,12 @@ var createButtonActiveGesture = function createButtonActiveGesture(el, isButton)
   };
 
   return (0,_index_3f1a7d95_js__WEBPACK_IMPORTED_MODULE_2__.createGesture)({
-    el: el,
+    el,
     gestureName: 'buttonActiveDrag',
     threshold: 0,
-    onStart: function onStart(ev) {
-      return activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_683b3b3c_js__WEBPACK_IMPORTED_MODULE_1__.a);
-    },
-    onMove: function onMove(ev) {
-      return activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_683b3b3c_js__WEBPACK_IMPORTED_MODULE_1__.b);
-    },
-    onEnd: function onEnd() {
+    onStart: ev => activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_683b3b3c_js__WEBPACK_IMPORTED_MODULE_1__.a),
+    onMove: ev => activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_683b3b3c_js__WEBPACK_IMPORTED_MODULE_1__.b),
+    onEnd: () => {
       clearActiveButton(true);
       (0,_haptic_683b3b3c_js__WEBPACK_IMPORTED_MODULE_1__.h)();
       initialTouchedButton = undefined;
@@ -110,11 +100,11 @@ var createButtonActiveGesture = function createButtonActiveGesture(el, isButton)
 /*!***********************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/dir-e8b767a8.js ***!
   \***********************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "i": function() { return /* binding */ isRTL; }
+/* harmony export */   "i": () => (/* binding */ isRTL)
 /* harmony export */ });
 /*!
  * (C) Ionic http://ionicframework.com - MIT License
@@ -125,7 +115,7 @@ __webpack_require__.r(__webpack_exports__);
  * has a `dir` set to `rtl`. The host value will always
  * take priority over the root document value.
  */
-var isRTL = function isRTL(hostEl) {
+const isRTL = hostEl => {
   if (hostEl) {
     if (hostEl.dir !== '') {
       return hostEl.dir.toLowerCase() === 'rtl';
@@ -143,41 +133,37 @@ var isRTL = function isRTL(hostEl) {
 /*!*********************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/focus-visible-5ad6825d.js ***!
   \*********************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "startFocusVisible": function() { return /* binding */ startFocusVisible; }
+/* harmony export */   "startFocusVisible": () => (/* binding */ startFocusVisible)
 /* harmony export */ });
 /*!
  * (C) Ionic http://ionicframework.com - MIT License
  */
-var ION_FOCUSED = 'ion-focused';
-var ION_FOCUSABLE = 'ion-focusable';
-var FOCUS_KEYS = ['Tab', 'ArrowDown', 'Space', 'Escape', ' ', 'Shift', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'Home', 'End'];
+const ION_FOCUSED = 'ion-focused';
+const ION_FOCUSABLE = 'ion-focusable';
+const FOCUS_KEYS = ['Tab', 'ArrowDown', 'Space', 'Escape', ' ', 'Shift', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'Home', 'End'];
 
-var startFocusVisible = function startFocusVisible(rootEl) {
-  var currentFocus = [];
-  var keyboardMode = true;
-  var ref = rootEl ? rootEl.shadowRoot : document;
-  var root = rootEl ? rootEl : document.body;
+const startFocusVisible = rootEl => {
+  let currentFocus = [];
+  let keyboardMode = true;
+  const ref = rootEl ? rootEl.shadowRoot : document;
+  const root = rootEl ? rootEl : document.body;
 
-  var setFocus = function setFocus(elements) {
-    currentFocus.forEach(function (el) {
-      return el.classList.remove(ION_FOCUSED);
-    });
-    elements.forEach(function (el) {
-      return el.classList.add(ION_FOCUSED);
-    });
+  const setFocus = elements => {
+    currentFocus.forEach(el => el.classList.remove(ION_FOCUSED));
+    elements.forEach(el => el.classList.add(ION_FOCUSED));
     currentFocus = elements;
   };
 
-  var pointerDown = function pointerDown() {
+  const pointerDown = () => {
     keyboardMode = false;
     setFocus([]);
   };
 
-  var onKeydown = function onKeydown(ev) {
+  const onKeydown = ev => {
     keyboardMode = FOCUS_KEYS.includes(ev.key);
 
     if (!keyboardMode) {
@@ -185,9 +171,9 @@ var startFocusVisible = function startFocusVisible(rootEl) {
     }
   };
 
-  var onFocusin = function onFocusin(ev) {
+  const onFocusin = ev => {
     if (keyboardMode && ev.composedPath) {
-      var toFocus = ev.composedPath().filter(function (el) {
+      const toFocus = ev.composedPath().filter(el => {
         if (el.classList) {
           return el.classList.contains(ION_FOCUSABLE);
         }
@@ -198,7 +184,7 @@ var startFocusVisible = function startFocusVisible(rootEl) {
     }
   };
 
-  var onFocusout = function onFocusout() {
+  const onFocusout = () => {
     if (ref.activeElement === root) {
       setFocus([]);
     }
@@ -210,7 +196,7 @@ var startFocusVisible = function startFocusVisible(rootEl) {
   ref.addEventListener('touchstart', pointerDown);
   ref.addEventListener('mousedown', pointerDown);
 
-  var destroy = function destroy() {
+  const destroy = () => {
     ref.removeEventListener('keydown', onKeydown);
     ref.removeEventListener('focusin', onFocusin);
     ref.removeEventListener('focusout', onFocusout);
@@ -219,8 +205,8 @@ var startFocusVisible = function startFocusVisible(rootEl) {
   };
 
   return {
-    destroy: destroy,
-    setFocus: setFocus
+    destroy,
+    setFocus
   };
 };
 
@@ -232,20 +218,16 @@ var startFocusVisible = function startFocusVisible(rootEl) {
 /*!**************************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-ce4f806c.js ***!
   \**************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "C": function() { return /* binding */ CoreDelegate; },
-/* harmony export */   "a": function() { return /* binding */ attachComponent; },
-/* harmony export */   "d": function() { return /* binding */ detachComponent; }
+/* harmony export */   "C": () => (/* binding */ CoreDelegate),
+/* harmony export */   "a": () => (/* binding */ attachComponent),
+/* harmony export */   "d": () => (/* binding */ detachComponent)
 /* harmony export */ });
-/* harmony import */ var _home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_toConsumableArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js */ 8277);
-/* harmony import */ var _home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_regeneratorRuntime_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/regeneratorRuntime.js */ 1803);
-/* harmony import */ var _home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
-/* harmony import */ var _helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers-4d272360.js */ 9158);
-
-
+/* harmony import */ var _home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers-4d272360.js */ 9158);
 
 
 /*!
@@ -253,68 +235,42 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-var attachComponent = /*#__PURE__*/function () {
-  var _ref = (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/(0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_regeneratorRuntime_js__WEBPACK_IMPORTED_MODULE_1__["default"])().mark(function _callee(delegate, container, component, cssClasses, componentProps, inline) {
-    var _a, el;
+const attachComponent = /*#__PURE__*/function () {
+  var _ref = (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (delegate, container, component, cssClasses, componentProps, inline) {
+    var _a;
 
-    return (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_regeneratorRuntime_js__WEBPACK_IMPORTED_MODULE_1__["default"])().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            if (!delegate) {
-              _context.next = 2;
-              break;
-            }
+    if (delegate) {
+      return delegate.attachViewToDom(container, component, componentProps, cssClasses);
+    }
 
-            return _context.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
+    if (!inline && typeof component !== 'string' && !(component instanceof HTMLElement)) {
+      throw new Error('framework delegate is missing');
+    }
 
-          case 2:
-            if (!(!inline && typeof component !== 'string' && !(component instanceof HTMLElement))) {
-              _context.next = 4;
-              break;
-            }
+    const el = typeof component === 'string' ? (_a = container.ownerDocument) === null || _a === void 0 ? void 0 : _a.createElement(component) : component;
 
-            throw new Error('framework delegate is missing');
+    if (cssClasses) {
+      cssClasses.forEach(c => el.classList.add(c));
+    }
 
-          case 4:
-            el = typeof component === 'string' ? (_a = container.ownerDocument) === null || _a === void 0 ? void 0 : _a.createElement(component) : component;
+    if (componentProps) {
+      Object.assign(el, componentProps);
+    }
 
-            if (cssClasses) {
-              cssClasses.forEach(function (c) {
-                return el.classList.add(c);
-              });
-            }
-
-            if (componentProps) {
-              Object.assign(el, componentProps);
-            }
-
-            container.appendChild(el);
-            _context.next = 10;
-            return new Promise(function (resolve) {
-              return (0,_helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_3__.c)(el, resolve);
-            });
-
-          case 10:
-            return _context.abrupt("return", el);
-
-          case 11:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
+    container.appendChild(el);
+    yield new Promise(resolve => (0,_helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_1__.c)(el, resolve));
+    return el;
+  });
 
   return function attachComponent(_x, _x2, _x3, _x4, _x5, _x6) {
     return _ref.apply(this, arguments);
   };
 }();
 
-var detachComponent = function detachComponent(delegate, element) {
+const detachComponent = (delegate, element) => {
   if (element) {
     if (delegate) {
-      var container = element.parentElement;
+      const container = element.parentElement;
       return delegate.removeViewFromDom(container, element);
     }
 
@@ -324,119 +280,81 @@ var detachComponent = function detachComponent(delegate, element) {
   return Promise.resolve();
 };
 
-var CoreDelegate = function CoreDelegate() {
-  var BaseComponent;
-  var Reference;
+const CoreDelegate = () => {
+  let BaseComponent;
+  let Reference;
 
-  var attachViewToDom = /*#__PURE__*/function () {
-    var _ref2 = (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/(0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_regeneratorRuntime_js__WEBPACK_IMPORTED_MODULE_1__["default"])().mark(function _callee2(parentElement, userComponent) {
-      var userComponentProps,
-          cssClasses,
-          _a,
-          _b,
-          el,
-          _el,
-          app,
-          _args2 = arguments;
+  const attachViewToDom = /*#__PURE__*/function () {
+    var _ref2 = (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (parentElement, userComponent, userComponentProps = {}, cssClasses = []) {
+      var _a, _b;
 
-      return (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_regeneratorRuntime_js__WEBPACK_IMPORTED_MODULE_1__["default"])().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              userComponentProps = _args2.length > 2 && _args2[2] !== undefined ? _args2[2] : {};
-              cssClasses = _args2.length > 3 && _args2[3] !== undefined ? _args2[3] : [];
-              BaseComponent = parentElement;
-              /**
-               * If passing in a component via the `component` props
-               * we need to append it inside of our overlay component.
-               */
+      BaseComponent = parentElement;
+      /**
+       * If passing in a component via the `component` props
+       * we need to append it inside of our overlay component.
+       */
 
-              if (!userComponent) {
-                _context2.next = 12;
-                break;
-              }
+      if (userComponent) {
+        /**
+         * If passing in the tag name, create
+         * the element otherwise just get a reference
+         * to the component.
+         */
+        const el = typeof userComponent === 'string' ? (_a = BaseComponent.ownerDocument) === null || _a === void 0 ? void 0 : _a.createElement(userComponent) : userComponent;
+        /**
+         * Add any css classes passed in
+         * via the cssClasses prop on the overlay.
+         */
 
-              /**
-               * If passing in the tag name, create
-               * the element otherwise just get a reference
-               * to the component.
-               */
-              el = typeof userComponent === 'string' ? (_a = BaseComponent.ownerDocument) === null || _a === void 0 ? void 0 : _a.createElement(userComponent) : userComponent;
-              /**
-               * Add any css classes passed in
-               * via the cssClasses prop on the overlay.
-               */
+        cssClasses.forEach(c => el.classList.add(c));
+        /**
+         * Add any props passed in
+         * via the componentProps prop on the overlay.
+         */
 
-              cssClasses.forEach(function (c) {
-                return el.classList.add(c);
-              });
-              /**
-               * Add any props passed in
-               * via the componentProps prop on the overlay.
-               */
+        Object.assign(el, userComponentProps);
+        /**
+         * Finally, append the component
+         * inside of the overlay component.
+         */
 
-              Object.assign(el, userComponentProps);
-              /**
-               * Finally, append the component
-               * inside of the overlay component.
-               */
+        BaseComponent.appendChild(el);
+        yield new Promise(resolve => (0,_helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_1__.c)(el, resolve));
+      } else if (BaseComponent.children.length > 0) {
+        // If there is no component, then we need to create a new parent
+        // element to apply the css classes to.
+        const el = (_b = BaseComponent.ownerDocument) === null || _b === void 0 ? void 0 : _b.createElement('div');
+        cssClasses.forEach(c => el.classList.add(c)); // Move each child from the original template to the new parent element.
 
-              BaseComponent.appendChild(el);
-              _context2.next = 10;
-              return new Promise(function (resolve) {
-                return (0,_helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_3__.c)(el, resolve);
-              });
+        el.append(...BaseComponent.children); // Append the new parent element to the original parent element.
 
-            case 10:
-              _context2.next = 13;
-              break;
-
-            case 12:
-              if (BaseComponent.children.length > 0) {
-                // If there is no component, then we need to create a new parent
-                // element to apply the css classes to.
-                _el = (_b = BaseComponent.ownerDocument) === null || _b === void 0 ? void 0 : _b.createElement('div');
-                cssClasses.forEach(function (c) {
-                  return _el.classList.add(c);
-                }); // Move each child from the original template to the new parent element.
-
-                _el.append.apply(_el, (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_toConsumableArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(BaseComponent.children)); // Append the new parent element to the original parent element.
+        BaseComponent.appendChild(el);
+      }
+      /**
+       * Get the root of the app and
+       * add the overlay there.
+       */
 
 
-                BaseComponent.appendChild(_el);
-              }
+      const app = document.querySelector('ion-app') || document.body;
+      /**
+       * Create a placeholder comment so that
+       * we can return this component to where
+       * it was previously.
+       */
 
-            case 13:
-              /**
-               * Get the root of the app and
-               * add the overlay there.
-               */
-              app = document.querySelector('ion-app') || document.body;
-              /**
-               * Create a placeholder comment so that
-               * we can return this component to where
-               * it was previously.
-               */
-
-              Reference = document.createComment('ionic teleport');
-              BaseComponent.parentNode.insertBefore(Reference, BaseComponent);
-              app.appendChild(BaseComponent);
-              return _context2.abrupt("return", BaseComponent);
-
-            case 18:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
+      Reference = document.createComment('ionic teleport');
+      BaseComponent.parentNode.insertBefore(Reference, BaseComponent);
+      app.appendChild(BaseComponent);
+      return BaseComponent;
+    });
 
     return function attachViewToDom(_x7, _x8) {
       return _ref2.apply(this, arguments);
     };
   }();
 
-  var removeViewFromDom = function removeViewFromDom() {
+  const removeViewFromDom = () => {
     /**
      * Return component to where it was previously in the DOM.
      */
@@ -449,8 +367,8 @@ var CoreDelegate = function CoreDelegate() {
   };
 
   return {
-    attachViewToDom: attachViewToDom,
-    removeViewFromDom: removeViewFromDom
+    attachViewToDom,
+    removeViewFromDom
   };
 };
 
@@ -462,67 +380,74 @@ var CoreDelegate = function CoreDelegate() {
 /*!**************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/haptic-683b3b3c.js ***!
   \**************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "a": function() { return /* binding */ hapticSelectionStart; },
-/* harmony export */   "b": function() { return /* binding */ hapticSelectionChanged; },
-/* harmony export */   "c": function() { return /* binding */ hapticSelection; },
-/* harmony export */   "d": function() { return /* binding */ hapticImpact; },
-/* harmony export */   "h": function() { return /* binding */ hapticSelectionEnd; }
+/* harmony export */   "a": () => (/* binding */ hapticSelectionStart),
+/* harmony export */   "b": () => (/* binding */ hapticSelectionChanged),
+/* harmony export */   "c": () => (/* binding */ hapticSelection),
+/* harmony export */   "d": () => (/* binding */ hapticImpact),
+/* harmony export */   "h": () => (/* binding */ hapticSelectionEnd)
 /* harmony export */ });
 /*!
  * (C) Ionic http://ionicframework.com - MIT License
  */
-var HapticEngine = {
-  getEngine: function getEngine() {
+const HapticEngine = {
+  getEngine() {
     var _a;
 
-    var win = window;
+    const win = window;
     return win.TapticEngine || ((_a = win.Capacitor) === null || _a === void 0 ? void 0 : _a.isPluginAvailable('Haptics')) && win.Capacitor.Plugins.Haptics;
   },
-  available: function available() {
+
+  available() {
     return !!this.getEngine();
   },
-  isCordova: function isCordova() {
+
+  isCordova() {
     return !!window.TapticEngine;
   },
-  isCapacitor: function isCapacitor() {
-    var win = window;
+
+  isCapacitor() {
+    const win = window;
     return !!win.Capacitor;
   },
-  impact: function impact(options) {
-    var engine = this.getEngine();
+
+  impact(options) {
+    const engine = this.getEngine();
 
     if (!engine) {
       return;
     }
 
-    var style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
+    const style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
     engine.impact({
-      style: style
+      style
     });
   },
-  notification: function notification(options) {
-    var engine = this.getEngine();
+
+  notification(options) {
+    const engine = this.getEngine();
 
     if (!engine) {
       return;
     }
 
-    var style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
+    const style = this.isCapacitor() ? options.style.toUpperCase() : options.style;
     engine.notification({
-      style: style
+      style
     });
   },
-  selection: function selection() {
+
+  selection() {
     this.impact({
       style: 'light'
     });
   },
-  selectionStart: function selectionStart() {
-    var engine = this.getEngine();
+
+  selectionStart() {
+    const engine = this.getEngine();
 
     if (!engine) {
       return;
@@ -534,8 +459,9 @@ var HapticEngine = {
       engine.gestureSelectionStart();
     }
   },
-  selectionChanged: function selectionChanged() {
-    var engine = this.getEngine();
+
+  selectionChanged() {
+    const engine = this.getEngine();
 
     if (!engine) {
       return;
@@ -547,8 +473,9 @@ var HapticEngine = {
       engine.gestureSelectionChanged();
     }
   },
-  selectionEnd: function selectionEnd() {
-    var engine = this.getEngine();
+
+  selectionEnd() {
+    const engine = this.getEngine();
 
     if (!engine) {
       return;
@@ -560,13 +487,14 @@ var HapticEngine = {
       engine.gestureSelectionEnd();
     }
   }
+
 };
 /**
  * Trigger a selection changed haptic event. Good for one-time events
  * (not for gestures)
  */
 
-var hapticSelection = function hapticSelection() {
+const hapticSelection = () => {
   HapticEngine.selection();
 };
 /**
@@ -574,7 +502,7 @@ var hapticSelection = function hapticSelection() {
  */
 
 
-var hapticSelectionStart = function hapticSelectionStart() {
+const hapticSelectionStart = () => {
   HapticEngine.selectionStart();
 };
 /**
@@ -582,7 +510,7 @@ var hapticSelectionStart = function hapticSelectionStart() {
  */
 
 
-var hapticSelectionChanged = function hapticSelectionChanged() {
+const hapticSelectionChanged = () => {
   HapticEngine.selectionChanged();
 };
 /**
@@ -591,7 +519,7 @@ var hapticSelectionChanged = function hapticSelectionChanged() {
  */
 
 
-var hapticSelectionEnd = function hapticSelectionEnd() {
+const hapticSelectionEnd = () => {
   HapticEngine.selectionEnd();
 };
 /**
@@ -600,7 +528,7 @@ var hapticSelectionEnd = function hapticSelectionEnd() {
  */
 
 
-var hapticImpact = function hapticImpact(options) {
+const hapticImpact = options => {
   HapticEngine.impact(options);
 };
 
@@ -612,11 +540,11 @@ var hapticImpact = function hapticImpact(options) {
 /*!*************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/index-33ffec25.js ***!
   \*************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "w": function() { return /* binding */ win; }
+/* harmony export */   "w": () => (/* binding */ win)
 /* harmony export */ });
 /*!
  * (C) Ionic http://ionicframework.com - MIT License
@@ -644,7 +572,7 @@ __webpack_require__.r(__webpack_exports__);
  * Note: Code inside of this if-block will
  * not run in an SSR environment.
  */
-var win = typeof window !== 'undefined' ? window : undefined;
+const win = typeof window !== 'undefined' ? window : undefined;
 
 
 /***/ }),
@@ -653,27 +581,25 @@ var win = typeof window !== 'undefined' ? window : undefined;
 /*!*************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/index-3413f7be.js ***!
   \*************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "I": function() { return /* binding */ ION_CONTENT_ELEMENT_SELECTOR; },
-/* harmony export */   "a": function() { return /* binding */ findIonContent; },
-/* harmony export */   "b": function() { return /* binding */ ION_CONTENT_CLASS_SELECTOR; },
-/* harmony export */   "c": function() { return /* binding */ scrollByPoint; },
-/* harmony export */   "d": function() { return /* binding */ disableContentScrollY; },
-/* harmony export */   "f": function() { return /* binding */ findClosestIonContent; },
-/* harmony export */   "g": function() { return /* binding */ getScrollElement; },
-/* harmony export */   "i": function() { return /* binding */ isIonContent; },
-/* harmony export */   "p": function() { return /* binding */ printIonContentErrorMsg; },
-/* harmony export */   "r": function() { return /* binding */ resetContentScrollY; },
-/* harmony export */   "s": function() { return /* binding */ scrollToTop; }
+/* harmony export */   "I": () => (/* binding */ ION_CONTENT_ELEMENT_SELECTOR),
+/* harmony export */   "a": () => (/* binding */ findIonContent),
+/* harmony export */   "b": () => (/* binding */ ION_CONTENT_CLASS_SELECTOR),
+/* harmony export */   "c": () => (/* binding */ scrollByPoint),
+/* harmony export */   "d": () => (/* binding */ disableContentScrollY),
+/* harmony export */   "f": () => (/* binding */ findClosestIonContent),
+/* harmony export */   "g": () => (/* binding */ getScrollElement),
+/* harmony export */   "i": () => (/* binding */ isIonContent),
+/* harmony export */   "p": () => (/* binding */ printIonContentErrorMsg),
+/* harmony export */   "r": () => (/* binding */ resetContentScrollY),
+/* harmony export */   "s": () => (/* binding */ scrollToTop)
 /* harmony export */ });
-/* harmony import */ var _home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_regeneratorRuntime_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/regeneratorRuntime.js */ 1803);
-/* harmony import */ var _home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
-/* harmony import */ var _helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-4d272360.js */ 9158);
-/* harmony import */ var _index_c4b11676_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index-c4b11676.js */ 9273);
-
+/* harmony import */ var _home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
+/* harmony import */ var _helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers-4d272360.js */ 9158);
+/* harmony import */ var _index_c4b11676_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index-c4b11676.js */ 9273);
 
 
 /*!
@@ -681,9 +607,9 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-var ION_CONTENT_TAG_NAME = 'ION-CONTENT';
-var ION_CONTENT_ELEMENT_SELECTOR = 'ion-content';
-var ION_CONTENT_CLASS_SELECTOR = '.ion-content-scroll-host';
+const ION_CONTENT_TAG_NAME = 'ION-CONTENT';
+const ION_CONTENT_ELEMENT_SELECTOR = 'ion-content';
+const ION_CONTENT_CLASS_SELECTOR = '.ion-content-scroll-host';
 /**
  * Selector used for implementations reliant on `<ion-content>` for scroll event changes.
  *
@@ -692,11 +618,9 @@ var ION_CONTENT_CLASS_SELECTOR = '.ion-content-scroll-host';
  * the scroll viewport.
  */
 
-var ION_CONTENT_SELECTOR = "".concat(ION_CONTENT_ELEMENT_SELECTOR, ", ").concat(ION_CONTENT_CLASS_SELECTOR);
+const ION_CONTENT_SELECTOR = `${ION_CONTENT_ELEMENT_SELECTOR}, ${ION_CONTENT_CLASS_SELECTOR}`;
 
-var isIonContent = function isIonContent(el) {
-  return el && el.tagName === ION_CONTENT_TAG_NAME;
-};
+const isIonContent = el => el && el.tagName === ION_CONTENT_TAG_NAME;
 /**
  * Waits for the element host fully initialize before
  * returning the inner scroll element.
@@ -709,35 +633,15 @@ var isIonContent = function isIonContent(el) {
  */
 
 
-var getScrollElement = /*#__PURE__*/function () {
-  var _ref = (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_1__["default"])( /*#__PURE__*/(0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_regeneratorRuntime_js__WEBPACK_IMPORTED_MODULE_0__["default"])().mark(function _callee(el) {
-    return (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_regeneratorRuntime_js__WEBPACK_IMPORTED_MODULE_0__["default"])().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            if (!isIonContent(el)) {
-              _context.next = 4;
-              break;
-            }
+const getScrollElement = /*#__PURE__*/function () {
+  var _ref = (0,_home_user_vestapp_arnaldo_Projetos_vestapp_aplicativo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (el) {
+    if (isIonContent(el)) {
+      yield new Promise(resolve => (0,_helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_1__.c)(el, resolve));
+      return el.getScrollElement();
+    }
 
-            _context.next = 3;
-            return new Promise(function (resolve) {
-              return (0,_helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_2__.c)(el, resolve);
-            });
-
-          case 3:
-            return _context.abrupt("return", el.getScrollElement());
-
-          case 4:
-            return _context.abrupt("return", el);
-
-          case 5:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
+    return el;
+  });
 
   return function getScrollElement(_x) {
     return _ref.apply(this, arguments);
@@ -749,13 +653,13 @@ var getScrollElement = /*#__PURE__*/function () {
  */
 
 
-var findIonContent = function findIonContent(el) {
+const findIonContent = el => {
   /**
    * First we try to query the custom scroll host selector in cases where
    * the implementation is using an outer `ion-content` with an inner custom
    * scroll container.
    */
-  var customContentHost = el.querySelector(ION_CONTENT_CLASS_SELECTOR);
+  const customContentHost = el.querySelector(ION_CONTENT_CLASS_SELECTOR);
 
   if (customContentHost) {
     return customContentHost;
@@ -768,7 +672,7 @@ var findIonContent = function findIonContent(el) {
  */
 
 
-var findClosestIonContent = function findClosestIonContent(el) {
+const findClosestIonContent = el => {
   return el.closest(ION_CONTENT_SELECTOR);
 };
 /**
@@ -777,9 +681,9 @@ var findClosestIonContent = function findClosestIonContent(el) {
  */
 
 
-var scrollToTop = function scrollToTop(el, durationMs) {
+const scrollToTop = (el, durationMs) => {
   if (isIonContent(el)) {
-    var content = el;
+    const content = el;
     return content.scrollToTop(durationMs);
   }
 
@@ -795,9 +699,9 @@ var scrollToTop = function scrollToTop(el, durationMs) {
  */
 
 
-var scrollByPoint = function scrollByPoint(el, x, y, durationMs) {
+const scrollByPoint = (el, x, y, durationMs) => {
   if (isIonContent(el)) {
-    var content = el;
+    const content = el;
     return content.scrollByPoint(x, y, durationMs);
   }
 
@@ -813,8 +717,8 @@ var scrollByPoint = function scrollByPoint(el, x, y, durationMs) {
  */
 
 
-var printIonContentErrorMsg = function printIonContentErrorMsg(el) {
-  return (0,_index_c4b11676_js__WEBPACK_IMPORTED_MODULE_3__.a)(el, ION_CONTENT_ELEMENT_SELECTOR);
+const printIonContentErrorMsg = el => {
+  return (0,_index_c4b11676_js__WEBPACK_IMPORTED_MODULE_2__.a)(el, ION_CONTENT_ELEMENT_SELECTOR);
 };
 /**
  * Several components in Ionic need to prevent scrolling
@@ -823,10 +727,10 @@ var printIonContentErrorMsg = function printIonContentErrorMsg(el) {
  */
 
 
-var disableContentScrollY = function disableContentScrollY(contentEl) {
+const disableContentScrollY = contentEl => {
   if (isIonContent(contentEl)) {
-    var ionContent = contentEl;
-    var initialScrollY = ionContent.scrollY;
+    const ionContent = contentEl;
+    const initialScrollY = ionContent.scrollY;
     ionContent.scrollY = false;
     /**
      * This should be passed into resetContentScrollY
@@ -843,7 +747,7 @@ var disableContentScrollY = function disableContentScrollY(contentEl) {
   }
 };
 
-var resetContentScrollY = function resetContentScrollY(contentEl, initialScrollY) {
+const resetContentScrollY = (contentEl, initialScrollY) => {
   if (isIonContent(contentEl)) {
     contentEl.scrollY = initialScrollY;
   } else {
@@ -859,60 +763,60 @@ var resetContentScrollY = function resetContentScrollY(contentEl, initialScrollY
 /*!*************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/index-40bb69ee.js ***!
   \*************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "a": function() { return /* binding */ arrowBackSharp; },
-/* harmony export */   "b": function() { return /* binding */ closeCircle; },
-/* harmony export */   "c": function() { return /* binding */ chevronBack; },
-/* harmony export */   "d": function() { return /* binding */ closeSharp; },
-/* harmony export */   "e": function() { return /* binding */ searchSharp; },
-/* harmony export */   "f": function() { return /* binding */ checkmarkOutline; },
-/* harmony export */   "g": function() { return /* binding */ ellipseOutline; },
-/* harmony export */   "h": function() { return /* binding */ caretBackSharp; },
-/* harmony export */   "i": function() { return /* binding */ arrowDown; },
-/* harmony export */   "j": function() { return /* binding */ reorderThreeOutline; },
-/* harmony export */   "k": function() { return /* binding */ reorderTwoSharp; },
-/* harmony export */   "l": function() { return /* binding */ chevronDown; },
-/* harmony export */   "m": function() { return /* binding */ chevronForwardOutline; },
-/* harmony export */   "n": function() { return /* binding */ ellipsisHorizontal; },
-/* harmony export */   "o": function() { return /* binding */ chevronForward; },
-/* harmony export */   "p": function() { return /* binding */ caretUpSharp; },
-/* harmony export */   "q": function() { return /* binding */ caretDownSharp; },
-/* harmony export */   "r": function() { return /* binding */ removeOutline; },
-/* harmony export */   "s": function() { return /* binding */ searchOutline; },
-/* harmony export */   "t": function() { return /* binding */ close; },
-/* harmony export */   "u": function() { return /* binding */ menuOutline; },
-/* harmony export */   "v": function() { return /* binding */ menuSharp; }
+/* harmony export */   "a": () => (/* binding */ arrowBackSharp),
+/* harmony export */   "b": () => (/* binding */ closeCircle),
+/* harmony export */   "c": () => (/* binding */ chevronBack),
+/* harmony export */   "d": () => (/* binding */ closeSharp),
+/* harmony export */   "e": () => (/* binding */ searchSharp),
+/* harmony export */   "f": () => (/* binding */ checkmarkOutline),
+/* harmony export */   "g": () => (/* binding */ ellipseOutline),
+/* harmony export */   "h": () => (/* binding */ caretBackSharp),
+/* harmony export */   "i": () => (/* binding */ arrowDown),
+/* harmony export */   "j": () => (/* binding */ reorderThreeOutline),
+/* harmony export */   "k": () => (/* binding */ reorderTwoSharp),
+/* harmony export */   "l": () => (/* binding */ chevronDown),
+/* harmony export */   "m": () => (/* binding */ chevronForwardOutline),
+/* harmony export */   "n": () => (/* binding */ ellipsisHorizontal),
+/* harmony export */   "o": () => (/* binding */ chevronForward),
+/* harmony export */   "p": () => (/* binding */ caretUpSharp),
+/* harmony export */   "q": () => (/* binding */ caretDownSharp),
+/* harmony export */   "r": () => (/* binding */ removeOutline),
+/* harmony export */   "s": () => (/* binding */ searchOutline),
+/* harmony export */   "t": () => (/* binding */ close),
+/* harmony export */   "u": () => (/* binding */ menuOutline),
+/* harmony export */   "v": () => (/* binding */ menuSharp)
 /* harmony export */ });
 /*!
  * (C) Ionic http://ionicframework.com - MIT License
  */
 
 /* Ionicons v6.0.3, ES Modules */
-var arrowBackSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Arrow Back</title><path stroke-linecap='square' stroke-miterlimit='10' stroke-width='48' d='M244 400L100 256l144-144M120 256h292' class='ionicon-fill-none'/></svg>";
-var arrowDown = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Arrow Down</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M112 268l144 144 144-144M256 392V100' class='ionicon-fill-none'/></svg>";
-var caretBackSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Caret Back</title><path d='M368 64L144 256l224 192V64z'/></svg>";
-var caretDownSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Caret Down</title><path d='M64 144l192 224 192-224H64z'/></svg>";
-var caretUpSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Caret Up</title><path d='M448 368L256 144 64 368h384z'/></svg>";
-var checkmarkOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Checkmark</title><path stroke-linecap='round' stroke-linejoin='round' d='M416 128L192 384l-96-96' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
-var chevronBack = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Chevron Back</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M328 112L184 256l144 144' class='ionicon-fill-none'/></svg>";
-var chevronDown = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Chevron Down</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M112 184l144 144 144-144' class='ionicon-fill-none'/></svg>";
-var chevronForward = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Chevron Forward</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M184 112l144 144-144 144' class='ionicon-fill-none'/></svg>";
-var chevronForwardOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Chevron Forward</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M184 112l144 144-144 144' class='ionicon-fill-none'/></svg>";
-var close = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Close</title><path d='M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z'/></svg>";
-var closeCircle = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Close Circle</title><path d='M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm75.31 260.69a16 16 0 11-22.62 22.62L256 278.63l-52.69 52.68a16 16 0 01-22.62-22.62L233.37 256l-52.68-52.69a16 16 0 0122.62-22.62L256 233.37l52.69-52.68a16 16 0 0122.62 22.62L278.63 256z'/></svg>";
-var closeSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Close</title><path d='M400 145.49L366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49z'/></svg>";
-var ellipseOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Ellipse</title><circle cx='256' cy='256' r='192' stroke-linecap='round' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
-var ellipsisHorizontal = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Ellipsis Horizontal</title><circle cx='256' cy='256' r='48'/><circle cx='416' cy='256' r='48'/><circle cx='96' cy='256' r='48'/></svg>";
-var menuOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Menu</title><path stroke-linecap='round' stroke-miterlimit='10' d='M80 160h352M80 256h352M80 352h352' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
-var menuSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Menu</title><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>";
-var removeOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Remove</title><path stroke-linecap='round' stroke-linejoin='round' d='M400 256H112' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
-var reorderThreeOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Reorder Three</title><path stroke-linecap='round' stroke-linejoin='round' d='M96 256h320M96 176h320M96 336h320' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
-var reorderTwoSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Reorder Two</title><path stroke-linecap='square' stroke-linejoin='round' stroke-width='44' d='M118 304h276M118 208h276' class='ionicon-fill-none'/></svg>";
-var searchOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Search</title><path d='M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z' stroke-miterlimit='10' class='ionicon-fill-none ionicon-stroke-width'/><path stroke-linecap='round' stroke-miterlimit='10' d='M338.29 338.29L448 448' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
-var searchSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Search</title><path d='M464 428L339.92 303.9a160.48 160.48 0 0030.72-94.58C370.64 120.37 298.27 48 209.32 48S48 120.37 48 209.32s72.37 161.32 161.32 161.32a160.48 160.48 0 0094.58-30.72L428 464zM209.32 319.69a110.38 110.38 0 11110.37-110.37 110.5 110.5 0 01-110.37 110.37z'/></svg>";
+const arrowBackSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Arrow Back</title><path stroke-linecap='square' stroke-miterlimit='10' stroke-width='48' d='M244 400L100 256l144-144M120 256h292' class='ionicon-fill-none'/></svg>";
+const arrowDown = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Arrow Down</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M112 268l144 144 144-144M256 392V100' class='ionicon-fill-none'/></svg>";
+const caretBackSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Caret Back</title><path d='M368 64L144 256l224 192V64z'/></svg>";
+const caretDownSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Caret Down</title><path d='M64 144l192 224 192-224H64z'/></svg>";
+const caretUpSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Caret Up</title><path d='M448 368L256 144 64 368h384z'/></svg>";
+const checkmarkOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Checkmark</title><path stroke-linecap='round' stroke-linejoin='round' d='M416 128L192 384l-96-96' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
+const chevronBack = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Chevron Back</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M328 112L184 256l144 144' class='ionicon-fill-none'/></svg>";
+const chevronDown = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Chevron Down</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M112 184l144 144 144-144' class='ionicon-fill-none'/></svg>";
+const chevronForward = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Chevron Forward</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M184 112l144 144-144 144' class='ionicon-fill-none'/></svg>";
+const chevronForwardOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Chevron Forward</title><path stroke-linecap='round' stroke-linejoin='round' stroke-width='48' d='M184 112l144 144-144 144' class='ionicon-fill-none'/></svg>";
+const close = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Close</title><path d='M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z'/></svg>";
+const closeCircle = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Close Circle</title><path d='M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm75.31 260.69a16 16 0 11-22.62 22.62L256 278.63l-52.69 52.68a16 16 0 01-22.62-22.62L233.37 256l-52.68-52.69a16 16 0 0122.62-22.62L256 233.37l52.69-52.68a16 16 0 0122.62 22.62L278.63 256z'/></svg>";
+const closeSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Close</title><path d='M400 145.49L366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49z'/></svg>";
+const ellipseOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Ellipse</title><circle cx='256' cy='256' r='192' stroke-linecap='round' stroke-linejoin='round' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
+const ellipsisHorizontal = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Ellipsis Horizontal</title><circle cx='256' cy='256' r='48'/><circle cx='416' cy='256' r='48'/><circle cx='96' cy='256' r='48'/></svg>";
+const menuOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Menu</title><path stroke-linecap='round' stroke-miterlimit='10' d='M80 160h352M80 256h352M80 352h352' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
+const menuSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Menu</title><path d='M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z'/></svg>";
+const removeOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Remove</title><path stroke-linecap='round' stroke-linejoin='round' d='M400 256H112' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
+const reorderThreeOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Reorder Three</title><path stroke-linecap='round' stroke-linejoin='round' d='M96 256h320M96 176h320M96 336h320' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
+const reorderTwoSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Reorder Two</title><path stroke-linecap='square' stroke-linejoin='round' stroke-width='44' d='M118 304h276M118 208h276' class='ionicon-fill-none'/></svg>";
+const searchOutline = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Search</title><path d='M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z' stroke-miterlimit='10' class='ionicon-fill-none ionicon-stroke-width'/><path stroke-linecap='round' stroke-miterlimit='10' d='M338.29 338.29L448 448' class='ionicon-fill-none ionicon-stroke-width'/></svg>";
+const searchSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'><title>Search</title><path d='M464 428L339.92 303.9a160.48 160.48 0 0030.72-94.58C370.64 120.37 298.27 48 209.32 48S48 120.37 48 209.32s72.37 161.32 161.32 161.32a160.48 160.48 0 0094.58-30.72L428 464zM209.32 319.69a110.38 110.38 0 11110.37-110.37 110.5 110.5 0 01-110.37 110.37z'/></svg>";
 
 
 /***/ }),
@@ -921,42 +825,42 @@ var searchSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/sv
 /*!****************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/keyboard-4d5544a0.js ***!
   \****************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "KEYBOARD_DID_CLOSE": function() { return /* binding */ KEYBOARD_DID_CLOSE; },
-/* harmony export */   "KEYBOARD_DID_OPEN": function() { return /* binding */ KEYBOARD_DID_OPEN; },
-/* harmony export */   "copyVisualViewport": function() { return /* binding */ copyVisualViewport; },
-/* harmony export */   "keyboardDidClose": function() { return /* binding */ keyboardDidClose; },
-/* harmony export */   "keyboardDidOpen": function() { return /* binding */ keyboardDidOpen; },
-/* harmony export */   "keyboardDidResize": function() { return /* binding */ keyboardDidResize; },
-/* harmony export */   "resetKeyboardAssist": function() { return /* binding */ resetKeyboardAssist; },
-/* harmony export */   "setKeyboardClose": function() { return /* binding */ setKeyboardClose; },
-/* harmony export */   "setKeyboardOpen": function() { return /* binding */ setKeyboardOpen; },
-/* harmony export */   "startKeyboardAssist": function() { return /* binding */ startKeyboardAssist; },
-/* harmony export */   "trackViewportChanges": function() { return /* binding */ trackViewportChanges; }
+/* harmony export */   "KEYBOARD_DID_CLOSE": () => (/* binding */ KEYBOARD_DID_CLOSE),
+/* harmony export */   "KEYBOARD_DID_OPEN": () => (/* binding */ KEYBOARD_DID_OPEN),
+/* harmony export */   "copyVisualViewport": () => (/* binding */ copyVisualViewport),
+/* harmony export */   "keyboardDidClose": () => (/* binding */ keyboardDidClose),
+/* harmony export */   "keyboardDidOpen": () => (/* binding */ keyboardDidOpen),
+/* harmony export */   "keyboardDidResize": () => (/* binding */ keyboardDidResize),
+/* harmony export */   "resetKeyboardAssist": () => (/* binding */ resetKeyboardAssist),
+/* harmony export */   "setKeyboardClose": () => (/* binding */ setKeyboardClose),
+/* harmony export */   "setKeyboardOpen": () => (/* binding */ setKeyboardOpen),
+/* harmony export */   "startKeyboardAssist": () => (/* binding */ startKeyboardAssist),
+/* harmony export */   "trackViewportChanges": () => (/* binding */ trackViewportChanges)
 /* harmony export */ });
 /*!
  * (C) Ionic http://ionicframework.com - MIT License
  */
-var KEYBOARD_DID_OPEN = 'ionKeyboardDidShow';
-var KEYBOARD_DID_CLOSE = 'ionKeyboardDidHide';
-var KEYBOARD_THRESHOLD = 150;
-var previousVisualViewport = {};
-var currentVisualViewport = {};
-var keyboardOpen = false;
+const KEYBOARD_DID_OPEN = 'ionKeyboardDidShow';
+const KEYBOARD_DID_CLOSE = 'ionKeyboardDidHide';
+const KEYBOARD_THRESHOLD = 150;
+let previousVisualViewport = {};
+let currentVisualViewport = {};
+let keyboardOpen = false;
 /**
  * This is only used for tests
  */
 
-var resetKeyboardAssist = function resetKeyboardAssist() {
+const resetKeyboardAssist = () => {
   previousVisualViewport = {};
   currentVisualViewport = {};
   keyboardOpen = false;
 };
 
-var startKeyboardAssist = function startKeyboardAssist(win) {
+const startKeyboardAssist = win => {
   startNativeListeners(win);
 
   if (!win.visualViewport) {
@@ -965,7 +869,7 @@ var startKeyboardAssist = function startKeyboardAssist(win) {
 
   currentVisualViewport = copyVisualViewport(win.visualViewport);
 
-  win.visualViewport.onresize = function () {
+  win.visualViewport.onresize = () => {
     trackViewportChanges(win);
 
     if (keyboardDidOpen() || keyboardDidResize(win)) {
@@ -982,21 +886,17 @@ var startKeyboardAssist = function startKeyboardAssist(win) {
  */
 
 
-var startNativeListeners = function startNativeListeners(win) {
-  win.addEventListener('keyboardDidShow', function (ev) {
-    return setKeyboardOpen(win, ev);
-  });
-  win.addEventListener('keyboardDidHide', function () {
-    return setKeyboardClose(win);
-  });
+const startNativeListeners = win => {
+  win.addEventListener('keyboardDidShow', ev => setKeyboardOpen(win, ev));
+  win.addEventListener('keyboardDidHide', () => setKeyboardClose(win));
 };
 
-var setKeyboardOpen = function setKeyboardOpen(win, ev) {
+const setKeyboardOpen = (win, ev) => {
   fireKeyboardOpenEvent(win, ev);
   keyboardOpen = true;
 };
 
-var setKeyboardClose = function setKeyboardClose(win) {
+const setKeyboardClose = win => {
   fireKeyboardCloseEvent(win);
   keyboardOpen = false;
 };
@@ -1014,8 +914,8 @@ var setKeyboardClose = function setKeyboardClose(win) {
  */
 
 
-var keyboardDidOpen = function keyboardDidOpen() {
-  var scaledHeightDifference = (previousVisualViewport.height - currentVisualViewport.height) * currentVisualViewport.scale;
+const keyboardDidOpen = () => {
+  const scaledHeightDifference = (previousVisualViewport.height - currentVisualViewport.height) * currentVisualViewport.scale;
   return !keyboardOpen && previousVisualViewport.width === currentVisualViewport.width && scaledHeightDifference > KEYBOARD_THRESHOLD;
 };
 /**
@@ -1024,7 +924,7 @@ var keyboardDidOpen = function keyboardDidOpen() {
  */
 
 
-var keyboardDidResize = function keyboardDidResize(win) {
+const keyboardDidResize = win => {
   return keyboardOpen && !keyboardDidClose(win);
 };
 /**
@@ -1035,7 +935,7 @@ var keyboardDidResize = function keyboardDidResize(win) {
  */
 
 
-var keyboardDidClose = function keyboardDidClose(win) {
+const keyboardDidClose = win => {
   return keyboardOpen && currentVisualViewport.height === win.innerHeight;
 };
 /**
@@ -1043,11 +943,11 @@ var keyboardDidClose = function keyboardDidClose(win) {
  */
 
 
-var fireKeyboardOpenEvent = function fireKeyboardOpenEvent(win, nativeEv) {
-  var keyboardHeight = nativeEv ? nativeEv.keyboardHeight : win.innerHeight - currentVisualViewport.height;
-  var ev = new CustomEvent(KEYBOARD_DID_OPEN, {
+const fireKeyboardOpenEvent = (win, nativeEv) => {
+  const keyboardHeight = nativeEv ? nativeEv.keyboardHeight : win.innerHeight - currentVisualViewport.height;
+  const ev = new CustomEvent(KEYBOARD_DID_OPEN, {
     detail: {
-      keyboardHeight: keyboardHeight
+      keyboardHeight
     }
   });
   win.dispatchEvent(ev);
@@ -1057,8 +957,8 @@ var fireKeyboardOpenEvent = function fireKeyboardOpenEvent(win, nativeEv) {
  */
 
 
-var fireKeyboardCloseEvent = function fireKeyboardCloseEvent(win) {
-  var ev = new CustomEvent(KEYBOARD_DID_CLOSE);
+const fireKeyboardCloseEvent = win => {
+  const ev = new CustomEvent(KEYBOARD_DID_CLOSE);
   win.dispatchEvent(ev);
 };
 /**
@@ -1069,7 +969,7 @@ var fireKeyboardCloseEvent = function fireKeyboardCloseEvent(win) {
  */
 
 
-var trackViewportChanges = function trackViewportChanges(win) {
+const trackViewportChanges = win => {
   previousVisualViewport = Object.assign({}, currentVisualViewport);
   currentVisualViewport = copyVisualViewport(win.visualViewport);
 };
@@ -1079,7 +979,7 @@ var trackViewportChanges = function trackViewportChanges(win) {
  */
 
 
-var copyVisualViewport = function copyVisualViewport(visualViewport) {
+const copyVisualViewport = visualViewport => {
   return {
     width: Math.round(visualViewport.width),
     height: Math.round(visualViewport.height),
@@ -1099,11 +999,11 @@ var copyVisualViewport = function copyVisualViewport(visualViewport) {
 /*!***************************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/keyboard-controller-73af62b2.js ***!
   \***************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "c": function() { return /* binding */ createKeyboardController; }
+/* harmony export */   "c": () => (/* binding */ createKeyboardController)
 /* harmony export */ });
 /* harmony import */ var _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-33ffec25.js */ 2286);
 /*!
@@ -1117,18 +1017,18 @@ __webpack_require__.r(__webpack_exports__);
  * @param keyboardChangeCallback A function to call when the keyboard opens or closes.
  */
 
-var createKeyboardController = function createKeyboardController(keyboardChangeCallback) {
-  var keyboardWillShowHandler;
-  var keyboardWillHideHandler;
-  var keyboardVisible;
+const createKeyboardController = keyboardChangeCallback => {
+  let keyboardWillShowHandler;
+  let keyboardWillHideHandler;
+  let keyboardVisible;
 
-  var init = function init() {
-    keyboardWillShowHandler = function keyboardWillShowHandler() {
+  const init = () => {
+    keyboardWillShowHandler = () => {
       keyboardVisible = true;
       if (keyboardChangeCallback) keyboardChangeCallback(true);
     };
 
-    keyboardWillHideHandler = function keyboardWillHideHandler() {
+    keyboardWillHideHandler = () => {
       keyboardVisible = false;
       if (keyboardChangeCallback) keyboardChangeCallback(false);
     };
@@ -1137,21 +1037,19 @@ var createKeyboardController = function createKeyboardController(keyboardChangeC
     _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w === null || _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w === void 0 ? void 0 : _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w.addEventListener('keyboardWillHide', keyboardWillHideHandler);
   };
 
-  var destroy = function destroy() {
+  const destroy = () => {
     _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w === null || _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w === void 0 ? void 0 : _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w.removeEventListener('keyboardWillShow', keyboardWillShowHandler);
     _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w === null || _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w === void 0 ? void 0 : _index_33ffec25_js__WEBPACK_IMPORTED_MODULE_0__.w.removeEventListener('keyboardWillHide', keyboardWillHideHandler);
     keyboardWillShowHandler = keyboardWillHideHandler = undefined;
   };
 
-  var isKeyboardVisible = function isKeyboardVisible() {
-    return keyboardVisible;
-  };
+  const isKeyboardVisible = () => keyboardVisible;
 
   init();
   return {
-    init: init,
-    destroy: destroy,
-    isKeyboardVisible: isKeyboardVisible
+    init,
+    destroy,
+    isKeyboardVisible
   };
 };
 
@@ -1163,27 +1061,27 @@ var createKeyboardController = function createKeyboardController(keyboardChangeC
 /*!***********************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-5d6b6fe7.js ***!
   \***********************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "S": function() { return /* binding */ SPINNERS; }
+/* harmony export */   "S": () => (/* binding */ SPINNERS)
 /* harmony export */ });
 /*!
  * (C) Ionic http://ionicframework.com - MIT License
  */
-var spinners = {
+const spinners = {
   bubbles: {
     dur: 1000,
     circles: 9,
-    fn: function fn(dur, index, total) {
-      var animationDelay = "".concat(dur * index / total - dur, "ms");
-      var angle = 2 * Math.PI * index / total;
+    fn: (dur, index, total) => {
+      const animationDelay = `${dur * index / total - dur}ms`;
+      const angle = 2 * Math.PI * index / total;
       return {
         r: 5,
         style: {
-          top: "".concat(9 * Math.sin(angle), "px"),
-          left: "".concat(9 * Math.cos(angle), "px"),
+          top: `${9 * Math.sin(angle)}px`,
+          left: `${9 * Math.cos(angle)}px`,
           'animation-delay': animationDelay
         }
       };
@@ -1192,15 +1090,15 @@ var spinners = {
   circles: {
     dur: 1000,
     circles: 8,
-    fn: function fn(dur, index, total) {
-      var step = index / total;
-      var animationDelay = "".concat(dur * step - dur, "ms");
-      var angle = 2 * Math.PI * step;
+    fn: (dur, index, total) => {
+      const step = index / total;
+      const animationDelay = `${dur * step - dur}ms`;
+      const angle = 2 * Math.PI * step;
       return {
         r: 5,
         style: {
-          top: "".concat(9 * Math.sin(angle), "px"),
-          left: "".concat(9 * Math.cos(angle), "px"),
+          top: `${9 * Math.sin(angle)}px`,
+          left: `${9 * Math.cos(angle)}px`,
           'animation-delay': animationDelay
         }
       };
@@ -1210,7 +1108,7 @@ var spinners = {
     dur: 1400,
     elmDuration: true,
     circles: 1,
-    fn: function fn() {
+    fn: () => {
       return {
         r: 20,
         cx: 48,
@@ -1225,7 +1123,7 @@ var spinners = {
   crescent: {
     dur: 750,
     circles: 1,
-    fn: function fn() {
+    fn: () => {
       return {
         r: 26,
         style: {}
@@ -1235,12 +1133,12 @@ var spinners = {
   dots: {
     dur: 750,
     circles: 3,
-    fn: function fn(_, index) {
-      var animationDelay = -(110 * index) + 'ms';
+    fn: (_, index) => {
+      const animationDelay = -(110 * index) + 'ms';
       return {
         r: 6,
         style: {
-          left: "".concat(9 - 9 * index, "px"),
+          left: `${9 - 9 * index}px`,
           'animation-delay': animationDelay
         }
       };
@@ -1249,9 +1147,9 @@ var spinners = {
   lines: {
     dur: 1000,
     lines: 8,
-    fn: function fn(dur, index, total) {
-      var transform = "rotate(".concat(360 / total * index + (index < total / 2 ? 180 : -180), "deg)");
-      var animationDelay = "".concat(dur * index / total - dur, "ms");
+    fn: (dur, index, total) => {
+      const transform = `rotate(${360 / total * index + (index < total / 2 ? 180 : -180)}deg)`;
+      const animationDelay = `${dur * index / total - dur}ms`;
       return {
         y1: 14,
         y2: 26,
@@ -1265,9 +1163,9 @@ var spinners = {
   'lines-small': {
     dur: 1000,
     lines: 8,
-    fn: function fn(dur, index, total) {
-      var transform = "rotate(".concat(360 / total * index + (index < total / 2 ? 180 : -180), "deg)");
-      var animationDelay = "".concat(dur * index / total - dur, "ms");
+    fn: (dur, index, total) => {
+      const transform = `rotate(${360 / total * index + (index < total / 2 ? 180 : -180)}deg)`;
+      const animationDelay = `${dur * index / total - dur}ms`;
       return {
         y1: 12,
         y2: 20,
@@ -1281,9 +1179,9 @@ var spinners = {
   'lines-sharp': {
     dur: 1000,
     lines: 12,
-    fn: function fn(dur, index, total) {
-      var transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
-      var animationDelay = "".concat(dur * index / total - dur, "ms");
+    fn: (dur, index, total) => {
+      const transform = `rotate(${30 * index + (index < 6 ? 180 : -180)}deg)`;
+      const animationDelay = `${dur * index / total - dur}ms`;
       return {
         y1: 17,
         y2: 29,
@@ -1297,9 +1195,9 @@ var spinners = {
   'lines-sharp-small': {
     dur: 1000,
     lines: 12,
-    fn: function fn(dur, index, total) {
-      var transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
-      var animationDelay = "".concat(dur * index / total - dur, "ms");
+    fn: (dur, index, total) => {
+      const transform = `rotate(${30 * index + (index < 6 ? 180 : -180)}deg)`;
+      const animationDelay = `${dur * index / total - dur}ms`;
       return {
         y1: 12,
         y2: 20,
@@ -1311,7 +1209,7 @@ var spinners = {
     }
   }
 };
-var SPINNERS = spinners;
+const SPINNERS = spinners;
 
 
 /***/ }),
@@ -1320,11 +1218,11 @@ var SPINNERS = spinners;
 /*!******************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/swipe-back-fa30a130.js ***!
   \******************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createSwipeBackGesture": function() { return /* binding */ createSwipeBackGesture; }
+/* harmony export */   "createSwipeBackGesture": () => (/* binding */ createSwipeBackGesture)
 /* harmony export */ });
 /* harmony import */ var _helpers_4d272360_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers-4d272360.js */ 9158);
 /* harmony import */ var _dir_e8b767a8_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dir-e8b767a8.js */ 7481);
@@ -1338,18 +1236,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var createSwipeBackGesture = function createSwipeBackGesture(el, canStartHandler, onStartHandler, onMoveHandler, onEndHandler) {
-  var win = el.ownerDocument.defaultView;
-  var rtl = (0,_dir_e8b767a8_js__WEBPACK_IMPORTED_MODULE_1__.i)(el);
+const createSwipeBackGesture = (el, canStartHandler, onStartHandler, onMoveHandler, onEndHandler) => {
+  const win = el.ownerDocument.defaultView;
+  const rtl = (0,_dir_e8b767a8_js__WEBPACK_IMPORTED_MODULE_1__.i)(el);
   /**
    * Determine if a gesture is near the edge
    * of the screen. If true, then the swipe
    * to go back gesture should proceed.
    */
 
-  var isAtEdge = function isAtEdge(detail) {
-    var threshold = 50;
-    var startX = detail.startX;
+  const isAtEdge = detail => {
+    const threshold = 50;
+    const {
+      startX
+    } = detail;
 
     if (rtl) {
       return startX >= win.innerWidth - threshold;
@@ -1358,39 +1258,39 @@ var createSwipeBackGesture = function createSwipeBackGesture(el, canStartHandler
     return startX <= threshold;
   };
 
-  var getDeltaX = function getDeltaX(detail) {
+  const getDeltaX = detail => {
     return rtl ? -detail.deltaX : detail.deltaX;
   };
 
-  var getVelocityX = function getVelocityX(detail) {
+  const getVelocityX = detail => {
     return rtl ? -detail.velocityX : detail.velocityX;
   };
 
-  var canStart = function canStart(detail) {
+  const canStart = detail => {
     return isAtEdge(detail) && canStartHandler();
   };
 
-  var onMove = function onMove(detail) {
+  const onMove = detail => {
     // set the transition animation's progress
-    var delta = getDeltaX(detail);
-    var stepValue = delta / win.innerWidth;
+    const delta = getDeltaX(detail);
+    const stepValue = delta / win.innerWidth;
     onMoveHandler(stepValue);
   };
 
-  var onEnd = function onEnd(detail) {
+  const onEnd = detail => {
     // the swipe back gesture has ended
-    var delta = getDeltaX(detail);
-    var width = win.innerWidth;
-    var stepValue = delta / width;
-    var velocity = getVelocityX(detail);
-    var z = width / 2.0;
-    var shouldComplete = velocity >= 0 && (velocity > 0.2 || delta > z);
-    var missing = shouldComplete ? 1 - stepValue : stepValue;
-    var missingDistance = missing * width;
-    var realDur = 0;
+    const delta = getDeltaX(detail);
+    const width = win.innerWidth;
+    const stepValue = delta / width;
+    const velocity = getVelocityX(detail);
+    const z = width / 2.0;
+    const shouldComplete = velocity >= 0 && (velocity > 0.2 || delta > z);
+    const missing = shouldComplete ? 1 - stepValue : stepValue;
+    const missingDistance = missing * width;
+    let realDur = 0;
 
     if (missingDistance > 5) {
-      var dur = missingDistance / Math.abs(velocity);
+      const dur = missingDistance / Math.abs(velocity);
       realDur = Math.min(dur, 540);
     }
     /**
@@ -1404,14 +1304,14 @@ var createSwipeBackGesture = function createSwipeBackGesture(el, canStartHandler
   };
 
   return (0,_index_3f1a7d95_js__WEBPACK_IMPORTED_MODULE_2__.createGesture)({
-    el: el,
+    el,
     gestureName: 'goback-swipe',
     gesturePriority: 40,
     threshold: 10,
-    canStart: canStart,
+    canStart,
     onStart: onStartHandler,
-    onMove: onMove,
-    onEnd: onEnd
+    onMove,
+    onEnd
   });
 };
 
