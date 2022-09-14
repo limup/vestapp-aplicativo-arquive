@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.vestapp.br.app',
   appName: 'Vestapp Marketplace',
   webDir: 'www',
-  bundledWebRuntime: false
+  bundledWebRuntime: true
 };
 
 export default config;

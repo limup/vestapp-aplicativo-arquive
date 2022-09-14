@@ -4,7 +4,7 @@
 /*!**************************!*\
   !*** ./src/polyfills.ts ***!
   \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -27,17 +27,21 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Learn more in https://angular.io/guide/browser-support
  */
+
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
+
 /** IE11 requires the following for NgClass support on SVG elements */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
+
 /**
  * Web Animations `@angular/platform-browser/animations`
  * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
  * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
  */
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+
 /**
  * By default, zone.js will patch all possible macroTask and DomEvents
  * user can disable parts of macroTask/DomEvents patch by setting following flags
@@ -65,11 +69,12 @@ __webpack_require__.r(__webpack_exports__);
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
+
  // Included with Angular CLI.
+
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
-
 
 /***/ }),
 
@@ -77,7 +82,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************!*\
   !*** ./src/zone-flags.ts ***!
   \***************************/
-/***/ (() => {
+/***/ (function() {
 
 /**
  * Prevents Angular change detection from
@@ -85,7 +90,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 // eslint-disable-next-line no-underscore-dangle
 window.__Zone_disable_customElements = true;
-
 
 /***/ }),
 
@@ -187,7 +191,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       };
 
       Object.defineProperty(Zone, "root", {
-        get: function () {
+        get: function get() {
           var zone = Zone.current;
 
           while (zone.parent) {
@@ -200,14 +204,14 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
         configurable: true
       });
       Object.defineProperty(Zone, "current", {
-        get: function () {
+        get: function get() {
           return _currentZoneFrame.zone;
         },
         enumerable: false,
         configurable: true
       });
       Object.defineProperty(Zone, "currentTask", {
-        get: function () {
+        get: function get() {
           return _currentTask;
         },
         enumerable: false,
@@ -235,14 +239,14 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       };
 
       Object.defineProperty(Zone.prototype, "parent", {
-        get: function () {
+        get: function get() {
           return this._parent;
         },
         enumerable: false,
         configurable: true
       });
       Object.defineProperty(Zone.prototype, "name", {
-        get: function () {
+        get: function get() {
           return this._name;
         },
         enumerable: false,
@@ -477,16 +481,16 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
     Zone.__symbol__ = __symbol__;
     var DELEGATE_ZS = {
       name: '',
-      onHasTask: function (delegate, _, target, hasTaskState) {
+      onHasTask: function onHasTask(delegate, _, target, hasTaskState) {
         return delegate.hasTask(target, hasTaskState);
       },
-      onScheduleTask: function (delegate, _, target, task) {
+      onScheduleTask: function onScheduleTask(delegate, _, target, task) {
         return delegate.scheduleTask(target, task);
       },
-      onInvokeTask: function (delegate, _, target, task, applyThis, applyArgs) {
+      onInvokeTask: function onInvokeTask(delegate, _, target, task, applyThis, applyArgs) {
         return delegate.invokeTask(target, task, applyThis, applyArgs);
       },
-      onCancelTask: function (delegate, _, target, task) {
+      onCancelTask: function onCancelTask(delegate, _, target, task) {
         return delegate.cancelTask(target, task);
       }
     };
@@ -706,14 +710,14 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       };
 
       Object.defineProperty(ZoneTask.prototype, "zone", {
-        get: function () {
+        get: function get() {
           return this._zone;
         },
         enumerable: false,
         configurable: true
       });
       Object.defineProperty(ZoneTask.prototype, "state", {
-        get: function () {
+        get: function get() {
           return this._state;
         },
         enumerable: false,
@@ -853,68 +857,68 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
     var patches = {};
     var _api = {
       symbol: __symbol__,
-      currentZoneFrame: function () {
+      currentZoneFrame: function currentZoneFrame() {
         return _currentZoneFrame;
       },
       onUnhandledError: noop,
       microtaskDrainDone: noop,
       scheduleMicroTask: scheduleMicroTask,
-      showUncaughtError: function () {
+      showUncaughtError: function showUncaughtError() {
         return !Zone[__symbol__('ignoreConsoleErrorUncaughtError')];
       },
-      patchEventTarget: function () {
+      patchEventTarget: function patchEventTarget() {
         return [];
       },
       patchOnProperties: noop,
-      patchMethod: function () {
+      patchMethod: function patchMethod() {
         return noop;
       },
-      bindArguments: function () {
+      bindArguments: function bindArguments() {
         return [];
       },
-      patchThen: function () {
+      patchThen: function patchThen() {
         return noop;
       },
-      patchMacroTask: function () {
+      patchMacroTask: function patchMacroTask() {
         return noop;
       },
-      patchEventPrototype: function () {
+      patchEventPrototype: function patchEventPrototype() {
         return noop;
       },
-      isIEOrEdge: function () {
+      isIEOrEdge: function isIEOrEdge() {
         return false;
       },
-      getGlobalObjects: function () {
+      getGlobalObjects: function getGlobalObjects() {
         return undefined;
       },
-      ObjectDefineProperty: function () {
+      ObjectDefineProperty: function ObjectDefineProperty() {
         return noop;
       },
-      ObjectGetOwnPropertyDescriptor: function () {
+      ObjectGetOwnPropertyDescriptor: function ObjectGetOwnPropertyDescriptor() {
         return undefined;
       },
-      ObjectCreate: function () {
+      ObjectCreate: function ObjectCreate() {
         return undefined;
       },
-      ArraySlice: function () {
+      ArraySlice: function ArraySlice() {
         return [];
       },
-      patchClass: function () {
+      patchClass: function patchClass() {
         return noop;
       },
-      wrapWithCurrentZone: function () {
+      wrapWithCurrentZone: function wrapWithCurrentZone() {
         return noop;
       },
-      filterProperties: function () {
+      filterProperties: function filterProperties() {
         return [];
       },
-      attachOriginToPatched: function () {
+      attachOriginToPatched: function attachOriginToPatched() {
         return noop;
       },
-      _redefineProperty: function () {
+      _redefineProperty: function _redefineProperty() {
         return noop;
       },
-      patchCallbacks: function () {
+      patchCallbacks: function patchCallbacks() {
         return noop;
       },
       nativeScheduleMicroTask: nativeScheduleMicroTask
@@ -1016,7 +1020,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
   function patchPrototype(prototype, fnNames) {
     var source = prototype.constructor['name'];
 
-    var _loop_1 = function (i) {
+    var _loop_1 = function _loop_1(i) {
       var name_1 = fnNames[i];
       var delegate = prototype[name_1];
 
@@ -1028,7 +1032,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
         }
 
         prototype[name_1] = function (delegate) {
-          var patched = function () {
+          var patched = function patched() {
             return delegate.apply(this, bindArguments(arguments, source + '.' + name_1));
           };
 
@@ -1066,7 +1070,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
   var isMix = typeof _global.process !== 'undefined' && {}.toString.call(_global.process) === '[object process]' && !isWebWorker && !!(isWindowExists && internalWindow['HTMLElement']);
   var zoneSymbolEventNames$1 = {};
 
-  var wrapFn = function (event) {
+  var wrapFn = function wrapFn(event) {
     // https://github.com/angular/zone.js/issues/911, in IE, sometimes
     // event will be undefined, so we need to use window.event
     event = event || _global.event;
@@ -1298,7 +1302,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
           };
         } else {
           ObjectDefineProperty(_global[className].prototype, prop, {
-            set: function (fn) {
+            set: function set(fn) {
               if (typeof fn === 'function') {
                 this[originalInstanceKey][prop] = wrapWithCurrentZone(fn, className + '.' + prop); // keep callback in wrapped function so we can
                 // use it in Function.prototype.toString to return
@@ -1309,7 +1313,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
                 this[originalInstanceKey][prop] = fn;
               }
             },
-            get: function () {
+            get: function get() {
               return this[originalInstanceKey][prop];
             }
           });
@@ -1469,7 +1473,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
     };
 
     api.microtaskDrainDone = function () {
-      var _loop_2 = function () {
+      var _loop_2 = function _loop_2() {
         var uncaughtPromiseError = _uncaughtPromiseErrors.shift();
 
         try {
@@ -1543,7 +1547,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       };
     }
 
-    var once = function () {
+    var once = function once() {
       var wasCalled = false;
       return function wrapper(wrappedFunction) {
         return function () {
@@ -1724,7 +1728,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
 
     var ZONE_AWARE_PROMISE_TO_STRING = 'function ZoneAwarePromise() { [native code] }';
 
-    var noop = function () {};
+    var noop = function noop() {};
 
     var AggregateError = global.AggregateError;
 
@@ -1845,13 +1849,13 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       ZoneAwarePromise.allSettled = function (values) {
         var P = this && this.prototype instanceof ZoneAwarePromise ? this : ZoneAwarePromise;
         return P.allWithCallback(values, {
-          thenCallback: function (value) {
+          thenCallback: function thenCallback(value) {
             return {
               status: 'fulfilled',
               value: value
             };
           },
-          errorCallback: function (err) {
+          errorCallback: function errorCallback(err) {
             return {
               status: 'rejected',
               reason: err
@@ -1872,7 +1876,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
         var valueIndex = 0;
         var resolvedValues = [];
 
-        var _loop_3 = function (value) {
+        var _loop_3 = function _loop_3(value) {
           if (!isThenable(value)) {
             value = this_1.resolve(value);
           }
@@ -1926,14 +1930,14 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       };
 
       Object.defineProperty(ZoneAwarePromise.prototype, Symbol.toStringTag, {
-        get: function () {
+        get: function get() {
           return 'Promise';
         },
         enumerable: false,
         configurable: true
       });
       Object.defineProperty(ZoneAwarePromise.prototype, Symbol.species, {
-        get: function () {
+        get: function get() {
           return ZoneAwarePromise;
         },
         enumerable: false,
@@ -2145,7 +2149,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
   if (typeof window !== 'undefined') {
     try {
       var options = Object.defineProperty({}, 'passive', {
-        get: function () {
+        get: function get() {
           passiveSupported = true;
         }
       }); // Note: We pass the `options` object as the event handler too. This is not compatible with the
@@ -2188,7 +2192,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
     var PREPEND_EVENT_LISTENER = 'prependListener';
     var PREPEND_EVENT_LISTENER_SOURCE = '.' + PREPEND_EVENT_LISTENER + ':';
 
-    var invokeTask = function (task, target, event) {
+    var invokeTask = function invokeTask(task, target, event) {
       // for better performance, check isRemoved which is set
       // by removeEventListener
       if (task.isRemoved) {
@@ -2273,7 +2277,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
         if (errors.length === 1) {
           throw errors[0];
         } else {
-          var _loop_4 = function (i) {
+          var _loop_4 = function _loop_4(i) {
             var err = errors[i];
             api.nativeScheduleMicroTask(function () {
               throw err;
@@ -2288,12 +2292,12 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
     } // global shared zoneAwareCallback to handle all event callback with capture = false
 
 
-    var globalZoneAwareCallback = function (event) {
+    var globalZoneAwareCallback = function globalZoneAwareCallback(event) {
       return globalCallback(this, event, false);
     }; // global shared zoneAwareCallback to handle all event callback with capture = true
 
 
-    var globalZoneAwareCaptureCallback = function (event) {
+    var globalZoneAwareCaptureCallback = function globalZoneAwareCaptureCallback(event) {
       return globalCallback(this, event, true);
     };
 
@@ -2393,7 +2397,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
         return options;
       }
 
-      var customScheduleGlobal = function (task) {
+      var customScheduleGlobal = function customScheduleGlobal(task) {
         // if there is already a task for the eventName + capture,
         // just return, because we use the shared globalZoneAwareCallback here.
         if (taskData.isExisting) {
@@ -2403,7 +2407,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
         return nativeAddEventListener.call(taskData.target, taskData.eventName, taskData.capture ? globalZoneAwareCaptureCallback : globalZoneAwareCallback, taskData.options);
       };
 
-      var customCancelGlobal = function (task) {
+      var customCancelGlobal = function customCancelGlobal(task) {
         // if task is not marked as isRemoved, this call is directly
         // from Zone.prototype.cancelTask, we should remove the task
         // from tasksList of target first
@@ -2449,22 +2453,22 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
         return nativeRemoveEventListener.call(task.target, task.eventName, task.capture ? globalZoneAwareCaptureCallback : globalZoneAwareCallback, task.options);
       };
 
-      var customScheduleNonGlobal = function (task) {
+      var customScheduleNonGlobal = function customScheduleNonGlobal(task) {
         return nativeAddEventListener.call(taskData.target, taskData.eventName, task.invoke, taskData.options);
       };
 
-      var customSchedulePrepend = function (task) {
+      var customSchedulePrepend = function customSchedulePrepend(task) {
         return nativePrependEventListener.call(taskData.target, taskData.eventName, task.invoke, taskData.options);
       };
 
-      var customCancelNonGlobal = function (task) {
+      var customCancelNonGlobal = function customCancelNonGlobal(task) {
         return nativeRemoveEventListener.call(task.target, task.eventName, task.invoke, task.options);
       };
 
       var customSchedule = useGlobalCallback ? customScheduleGlobal : customScheduleNonGlobal;
       var customCancel = useGlobalCallback ? customCancelGlobal : customCancelNonGlobal;
 
-      var compareTaskCallbackVsDelegate = function (task, delegate) {
+      var compareTaskCallbackVsDelegate = function compareTaskCallbackVsDelegate(task, delegate) {
         var typeOfDelegate = typeof delegate;
         return typeOfDelegate === 'function' && task.callback === delegate || typeOfDelegate === 'object' && task.originalDelegate === delegate;
       };
@@ -2474,7 +2478,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
 
       var passiveEvents = _global[zoneSymbol$1('PASSIVE_EVENTS')];
 
-      var makeAddListener = function (nativeListener, addSource, customScheduleFn, customCancelFn, returnTarget, prepend) {
+      var makeAddListener = function makeAddListener(nativeListener, addSource, customScheduleFn, customCancelFn, returnTarget, prepend) {
         if (returnTarget === void 0) {
           returnTarget = false;
         }
@@ -3329,7 +3333,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       }
     }
 
-    var checkIEAndCrossContext = function (nativeDelegate, delegate, target, args) {
+    var checkIEAndCrossContext = function checkIEAndCrossContext(nativeDelegate, delegate, target, args) {
       if (!isDisableIECheck && ieOrEdge) {
         if (isEnableCrossContextCheck) {
           try {
@@ -3374,7 +3378,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
 
     api.patchEventTarget(_global, api, apiTypes, {
       vh: checkIEAndCrossContext,
-      transferEventName: function (eventName) {
+      transferEventName: function transferEventName(eventName) {
         var pointerEventName = pointerEventsMap[eventName];
         return pointerEventName || eventName;
       }
@@ -3497,7 +3501,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
         api.ObjectDefineProperty(Element.prototype, 'onclick', {
           enumerable: true,
           configurable: true,
-          get: function () {
+          get: function get() {
             return true;
           }
         });
@@ -3528,7 +3532,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       api.ObjectDefineProperty(XMLHttpRequestPrototype, ON_READY_STATE_CHANGE, {
         enumerable: true,
         configurable: true,
-        get: function () {
+        get: function get() {
           return true;
         }
       });
@@ -3542,16 +3546,16 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
       api.ObjectDefineProperty(XMLHttpRequestPrototype, ON_READY_STATE_CHANGE, {
         enumerable: true,
         configurable: true,
-        get: function () {
+        get: function get() {
           return this[SYMBOL_FAKE_ONREADYSTATECHANGE_1];
         },
-        set: function (value) {
+        set: function set(value) {
           this[SYMBOL_FAKE_ONREADYSTATECHANGE_1] = value;
         }
       });
       var req = new XMLHttpRequest();
 
-      var detectFunc = function () {};
+      var detectFunc = function detectFunc() {};
 
       req.onreadystatechange = detectFunc;
       var result = req[SYMBOL_FAKE_ONREADYSTATECHANGE_1] === detectFunc;
@@ -3577,7 +3581,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
   function patchViaCapturingAllTheEvents(api) {
     var unboundKey = api.symbol('unbound');
 
-    var _loop_5 = function (i) {
+    var _loop_5 = function _loop_5(i) {
       var property = eventNames[i];
       var onproperty = 'on' + property;
       self.addEventListener(property, function (event) {
@@ -4182,8 +4186,8 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
 /***/ })
 
 },
-/******/ __webpack_require__ => { // webpackRuntimeModules
-/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
 /******/ var __webpack_exports__ = (__webpack_exec__(7435));
 /******/ }
 ]);
