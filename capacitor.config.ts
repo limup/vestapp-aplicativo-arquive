@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.vestapp.br.app',
+  appId: 'br.com.app.vestapp',
   appName: 'Vestapp Marketplace',
   webDir: 'www',
   bundledWebRuntime: true

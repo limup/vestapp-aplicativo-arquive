@@ -1,8 +1,8 @@
 {
   "name": "vestapp-marketplace",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Limup Tech",
+  "homepage": "https://vestappbr.com.br/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -70,5 +70,5 @@
     "ts-node": "~8.3.0",
     "typescript": "~4.7.3"
   },
-  "description": "An Ionic project"
+  "description": "O serviço VestApp Marketplace, traz uma rede de vendedores dentre de diversas categorias de vestuário, utilizando nossa plataforma como formato de venda. Com isso, o consumidor final consegue encontrar a tendência da moda em um único site, para um menor custo de frete, trabalhamos em parceria com a Melhor Envio."
 }
