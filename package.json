@@ -1,7 +1,7 @@
 {
   "name": "vestapp-marketplace",
-  "version": "0.0.1",
-  "author": "Limup Tech",
+  "version": "1.0.0",
+  "author": "Vestapp Tecnologia",
   "homepage": "https://vestappbr.com.br/",
   "scripts": {
     "ng": "ng",
